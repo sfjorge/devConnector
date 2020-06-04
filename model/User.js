@@ -1,4 +1,4 @@
-const mongoose = require('express');
+const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -9,6 +9,10 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    password: {
+        type: String,
+        required: true
+      },
     avatar: {
         type: String
     },
