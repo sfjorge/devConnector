@@ -21,4 +21,4 @@ const Landing = () => {
     )
 };
 
-export default Landing;s
+export default Landing;
