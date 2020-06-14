@@ -21,7 +21,7 @@ router.get('/', auth, async (req, res) => {
     }
 });
 
-//@route   GET api/users
+//@route   GET api/auth
 //@desc    Authenticate user & get token
 //@access  Public
 router.post(
@@ -43,13 +43,13 @@ router.post(
             
             //see if users doesn't exist
             if(!user) {
-                return res.status(400).json({ errors: [ { msg: 'Invalid credentials #'}]});
+                return res.status(400).json({ errors: [ { msg: 'Invalid credentials'}]});
             }
 
             const isMatch = await bcrypt.compare(password, user.password);
 
             if (!isMatch) {
-                return res.status(400).json({ errors: [{ mesg: 'Invalid credentials *'}]})
+                return res.status(400).json({ errors: [{ msg: 'Invalid credentials'}]})
             }
 
             //return jsonwebtoken
